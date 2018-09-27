@@ -6,6 +6,7 @@ default['serverdensity']['agent_key'] = nil
 default['serverdensity']['enabled'] = true
 default['serverdensity']['sd_account'] = nil
 default['serverdensity']['token'] = nil
+default['serverdensity']['version'] = nil
 
 default['serverdensity']['plugin_dir'] = '/etc/sd-agent/plugins'
 default['serverdensity']['plugin_options'] = {}

@@ -16,6 +16,8 @@ case node["platform"]
     include_recipe 'apt'
 
     case node['lsb']['codename'].downcase
+      when 'bionic'
+        node.run_state['repo_dist'] = 'bionic'
       when 'artful', 'yakkety', 'xenial', 'zesty'
         node.run_state['repo_dist'] = 'xenial'
       when 'trusty', 'utopic', 'vivid', 'wily'
@@ -89,7 +91,9 @@ case node["platform"]
     end
 end
 
-package 'sd-agent'
+package 'sd-agent' do
+  version node['serverdensity']['version']
+end
 
 service 'sd-agent' do
   supports [:start, :stop, :restart]
